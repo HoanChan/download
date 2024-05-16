@@ -1,4 +1,4 @@
-# Check the instructions here on how to use it mass grave[.]dev
+write-host "Trình khởi động TestCreator xin chào bạn, chờ tí để mình chuẩn bị mọi thứ nhé!"
 
 $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
@@ -35,22 +35,21 @@ try {
     if ($NeedDownload) {
         $response = Invoke-WebRequest -Uri $RandomURL1 -OutFile $FilePath
     }
-    Start-Process $FilePath -Wait
+    Start-Process $FilePath
 }
 catch {
     try {
         if ($NeedDownload) {
             $response = Invoke-WebRequest -Uri $RandomURL2 -OutFile $FilePath
         }
-        Start-Process $FilePath -Wait
+        Start-Process $FilePath
     }
     catch {
         if ($NeedDownload) {
             $response = Invoke-WebRequest -Uri $RandomURL3 -OutFile $FilePath
         }
-        Start-Process $FilePath -Wait
+        Start-Process $FilePath
     }
 }
-# Get-Item $FilePath | Remove-Item 
-write-host "Bye!"
+write-host "Xong rồi, dùng đi nhé. Bye!"
 Start-Sleep -Seconds 1
