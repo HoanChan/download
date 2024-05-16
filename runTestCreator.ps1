@@ -51,7 +51,6 @@ catch {
         Start-Process $FilePath -Wait
     }
 }
-
-Get-Item $FilePath | Remove-Item 
+# Get-Item $FilePath | Remove-Item 
 write-host "Bye!"
 Start-Sleep -Seconds 1
