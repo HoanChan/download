@@ -2,7 +2,7 @@
 mkdir C:\TestCreator
 
 REM Tải xuống tệp PowerShell
-@echo Dơnload PowerShell file
+@echo Download PowerShell file
 powershell -Command "Invoke-WebRequest -Uri 'https://github.com/HoanChan/download/raw/main/runTestCreator.ps1' -OutFile 'C:\TestCreator\runTestCreator.ps1' -UseBasicP"
 
 REM Chạy tệp PowerShell với quyền admin
