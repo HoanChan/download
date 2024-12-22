@@ -1,4 +1,4 @@
-$VERSION = [Version]::Parse("1.1.0")
+$VERSION = [Version]::Parse("1.1.1")
 
 $verURL1 = 'https://raw.githubusercontent.com/HoanChan/download/main/TestCreator.ver'
 $verURL2 = 'https://github.com/HoanChan/download/raw/refs/heads/main/TestCreator.ver'
