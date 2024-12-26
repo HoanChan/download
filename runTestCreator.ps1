@@ -61,7 +61,16 @@ if (-not (Test-Path -Path $filePath)) {
         Exit
     }
     else{
-        write-host "(2) TestCreator.exe downloaded. Next time you launch TestCreator, it will check for updates automatically. Launching TestCreator..."
+        write-host "(2) TestCreator.exe downloaded."
+        $downloaded = Download-FileFromUrls -Urls $verUrls -DestinationPath $verFilePath
+        if (-not $downloaded) {
+            write-host "Error: Unable to download TestCreator.ver. I will download it again next time."
+        }
+        else{
+            write-host "TestCreator.ver downloaded."
+        }
+        write-host "It seems like everything is ready now."
+        write-host "(4) Scanning for viruses and launching TestCreator..."
     }
 }
 else{
@@ -91,7 +100,8 @@ else{
                 $backupFilePath = Join-Path -Path $currentDir -ChildPath "TestCreator.bak"
                 Move-Item -Path $filePath -Destination $backupFilePath -Force
                 Move-Item -Path $exeFilePath -Destination $filePath -Force
-                write-host "(5) Update successful. Launching TestCreator..."
+                write-host "Update successful."
+                write-host "(5) Scanning for viruses and launching TestCreator..."
                 break
             } catch {
                 write-host "Error: Unable to update TestCreator. Please check your permissions or restart computer and try again."
@@ -107,7 +117,8 @@ else{
         }
     }
     else{
-        write-host "(3) TestCreator is up-to-date. Launching TestCreator..."
+        write-host "TestCreator is up-to-date"
+        write-host "(3) Scanning for viruses and launching TestCreator..."
     }
 }
 
